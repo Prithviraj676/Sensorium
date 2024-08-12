@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "dgSpecHash": "kt5HRAB+weeEEdD9pye3cLkNc01/MZtS7dQoPilYK8OdLIHF7d+jwfHufA6aDVVgunnEZQehLQmyuxqO/Q1ngA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\DataRetrieval\\DataRetrieval.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AERO\\.nuget\\packages\\hidsharp\\2.1.0\\hidsharp.2.1.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\librehardwaremonitorlib\\0.9.3\\librehardwaremonitorlib.0.9.3.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\mono.posix.netstandard\\1.0.0\\mono.posix.netstandard.1.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\openhardwaremonitor\\0.9.6\\openhardwaremonitor.0.9.6.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\runtime.linux-x64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\runtime.native.system.io.ports\\8.0.0\\runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\8.0.0\\runtime.osx-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\system.io.ports\\8.0.0\\system.io.ports.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'OpenHardwareMonitor 0.9.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "OpenHardwareMonitor",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}
