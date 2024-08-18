@@ -106,7 +106,8 @@ public partial class Program
                     {
                         if((sensor.SensorType == SensorType.Fan) && sensor.Value != 0)
                         {
-                            sb.AppendLine($"\t\tSensor: {sensor.Name}, value: {sensor.Value}, MinValue: {sensor.Min}, MaxValue: {sensor.Max}");
+                            Dictionary<string, float?> val= new Dictionary<string, float?>();
+                            /*sb.AppendLine($"\t\tSensor: {sensor.Name}, value: {sensor.Value}, MinValue: {sensor.Min}, MaxValue: {sensor.Max}");
                             Console.WriteLine($"TYPE\t\tSensor: {sensor.Name},          Min: {sensor.Min},        value: {sensor.Value},            Max: {sensor.Max}, Index{sensor.Index}");
                         }
 
@@ -115,8 +116,7 @@ public partial class Program
 
                 foreach (ISensor sensor in hardware.Sensors)
                 {
-
-                    Console.WriteLine($"\tSensor Type: {sensor.SensorType},         Sensor: {sensor.Name}, value: {sensor.Value}");
+                    /*Console.WriteLine($"EXTERNAL:           \tSensor Type: {sensor.SensorType},         Sensor: {sensor.Name}, value: {sensor.Value}");*/
                 }
             }
            /* Console.WriteLine("\n\n\n\n");
