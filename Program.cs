@@ -3,72 +3,34 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
-using LibreHardwareMonitor.Hardware;
-using System.Runtime.CompilerServices;
 
-public partial class UpdateVisitor : IVisitor
-{
-    public void VisitComputer(IComputer computer)
-    {
-        computer.Traverse(this);
-    }
-    public void VisitHardware(IHardware hardware)
-    {
-        hardware.Update();
-        foreach (IHardware subHardware in hardware.SubHardware) subHardware.Accept(this);
-    }
-    public void VisitSensor(ISensor sensor) { }
-    public void VisitParameter(IParameter parameter) { }
-}
+/*using System.Threading;
+using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;*/
+
+using LibreHardwareMonitor.Hardware;
+
+using Newtonsoft.Json;
+
+using Visitor;
+using s_init;
+
+
 
 
 public partial class Program
 {
     private static bool _running = true;
-    private static TcpListener _server;
-    private static StreamWriter _writer;
-    private static IPEndPoint _ipEndPoint;
+    
 
     public static void Main()
     {
         Program one = new Program();
-        one.StartServer();
+        ServerInit s_obj = new ServerInit();
+        s_obj.StartServer();
         one.Monitor();
     }
 
-    private async void StartServer()
-    {
-
-        try
-        {
-            _ipEndPoint = new IPEndPoint(IPAddress.Any, 1919);
-            _server = new (_ipEndPoint);
-            _server.Start();
-            Console.WriteLine("The server has started at 1919");
-            try
-            {
-                using TcpClient handler = await _server.AcceptTcpClientAsync();
-                Console.WriteLine("Client connected");
-                Thread serverThread = new Thread(() =>
-                {
-                   /* TcpClient client = _server.AcceptTcpClient();*/
-                    _writer = new StreamWriter(handler.GetStream(), Encoding.UTF8) 
-                    { 
-                        AutoFlush = true 
-                    };
-                });
-                serverThread.Start();
-            }catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.ToString());
-        }
-    }
 
     public void Monitor()
     {
@@ -91,7 +53,7 @@ public partial class Program
 
         while (_running)
         {
-            Dictionary<string, Dictionary<string, float>> val = new Dictionary<string, Dictionary<string, float>>();
+            Dictionary<string, Dictionary<string, float?>> Vsensor = new Dictionary<string, Dictionary<string, float?>>();
             StringBuilder sb = new StringBuilder();
 
             foreach (IHardware hardware in computer.Hardware)
@@ -100,7 +62,7 @@ public partial class Program
 */                hardware.Update();
                 foreach (IHardware subhardware in hardware.SubHardware)
                 {
-                    Console.WriteLine("\tSubhardware: {0}", subhardware.Name);
+                    Console.WriteLine("OUTER:           \tSubhardware: {0}", subhardware.Name);
 
                     foreach (ISensor sensor in subhardware.Sensors)
                     {
@@ -109,13 +71,40 @@ public partial class Program
                             Dictionary<string, float?> val= new Dictionary<string, float?>();
                             /*sb.AppendLine($"\t\tSensor: {sensor.Name}, value: {sensor.Value}, MinValue: {sensor.Min}, MaxValue: {sensor.Max}");
                             Console.WriteLine($"TYPE\t\tSensor: {sensor.Name},          Min: {sensor.Min},        value: {sensor.Value},            Max: {sensor.Max}, Index{sensor.Index}");
+*/
+                            val.Add("Min", sensor.Min);
+                            val.Add("Max", sensor.Max);
+                            val.Add("Value", sensor.Value);
+
+                            if (Vsensor.ContainsKey(sensor.Name))
+                            {
+                                Vsensor[sensor.Name] = val;
+                            }
+                            else
+                            {
+                                Vsensor.Add(sensor.Name, val);
+                            }
+
+                            /*foreach(var s in Vsensor)
+                            {
+                                Console.WriteLine("Sensor: " + s.Key + ": \n");
+                                foreach(var v in s.Value)
+                                {
+                                    Console.WriteLine("\t\t" + v.Key + " : " + v.Value + "\n");
+                                }
+
+                            }*/
+
                         }
 
                     }
+                            string valJson = JsonConvert.SerializeObject(Vsensor);
+                            Console.WriteLine(valJson + "\n\n");
                 }
 
                 foreach (ISensor sensor in hardware.Sensors)
                 {
+
                     /*Console.WriteLine($"EXTERNAL:           \tSensor Type: {sensor.SensorType},         Sensor: {sensor.Name}, value: {sensor.Value}");*/
                 }
             }
