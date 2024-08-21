@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 
 namespace s_init { 
-    public class ServerInit
+    internal class ServerInit
     {
 	    public ServerInit()
 	    {
@@ -14,8 +15,9 @@ namespace s_init {
         private static TcpListener _server;
         private static StreamWriter _writer;
         private static IPEndPoint _ipEndPoint;
+        private static bool _exe = true;
 
-        public async void StartServer()
+        internal async void StartServer()
         {
 
             try
@@ -26,17 +28,16 @@ namespace s_init {
                 Console.WriteLine("The server has started at 1919");
                 try
                 {
-                    using TcpClient handler = await _server.AcceptTcpClientAsync();
+                    TcpClient handler = await _server.AcceptTcpClientAsync();
                     Console.WriteLine("Client connected");
-                    Thread serverThread = new Thread(() =>
+                    _writer = new StreamWriter(handler.GetStream(), Encoding.UTF8)
                     {
+                        AutoFlush = true
+                };
+                    Thread serverThread = new Thread(
+                        TransmitData
                         /* TcpClient client = _server.AcceptTcpClient();*/
-                        /*_writer = new StreamWriter(handler.GetStream(), Encoding.UTF8) 
-                        { 
-                            AutoFlush = true 
-                        };*/
-                    
-                    });
+                        );
                     serverThread.Start();
                 }
                 catch (Exception ex)
@@ -49,5 +50,16 @@ namespace s_init {
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        static void TransmitData()
+        {
+            while (exe)
+            {
+                _writer.WriteLine(valJson);
+                Console.WriteLine("Sensor Data sent!");
+                Thread.sleep(1000);
+            }
+        }
+
     }
 }
