@@ -22,12 +22,10 @@ public partial class Program
 {
     private static bool _running = true;
     
-
     public static void Main()
     {
         Program one = new Program();
         ServerInit s_obj = new ServerInit();
-        s_obj.StartServer();
         one.Monitor();
     }
 

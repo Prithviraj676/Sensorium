@@ -2,7 +2,7 @@
 using LibreHardwareMonitor.Hardware;
 
 
-namespace UpdateVisitor
+namespace Visitor
 {
 
 
