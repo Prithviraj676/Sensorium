@@ -6,20 +6,26 @@ using System.Text;
 namespace s_init { 
     internal class ServerInit
     {
+        private static TcpListener _server;
+        private static StreamWriter _writer;
+        private static IPEndPoint _ipEndPoint;
+
+        private static bool _exec = true;
+        protected static string valJson = "";
+
 	    public ServerInit()
 	    {
             StartServer();
 	    }
 
-
-        private static TcpListener _server;
-        private static StreamWriter _writer;
-        private static IPEndPoint _ipEndPoint;
-        private static bool _exe = true;
-
-        internal async void StartServer()
+        public ServerInit(bool _exec, string valJson)
         {
+            this._exec = _exec;
+            this.valJson = valJson;
+        }
 
+        internal async void StartServer(string vJson)
+        {
             try
             {
                 _ipEndPoint = new IPEndPoint(IPAddress.Any, 1919);
@@ -53,7 +59,7 @@ namespace s_init {
 
         static void TransmitData()
         {
-            while (exe)
+            while (_exec)
             {
                 _writer.WriteLine(valJson);
                 Console.WriteLine("Sensor Data sent!");
