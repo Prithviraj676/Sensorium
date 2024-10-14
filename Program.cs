@@ -13,7 +13,7 @@ using LibreHardwareMonitor.Hardware;
 using Newtonsoft.Json;
 
 using Visitor;
-using s_init;
+//using s_init;
 
 
 
@@ -51,8 +51,11 @@ public partial class Program
 
         while (_running)
         {
-            Dictionary<string, Dictionary<string, float?>> Vsensor = new Dictionary<string, Dictionary<string, float?>>();
+            Dictionary<string, Dictionary<string, float?>> vFanDict = new Dictionary<string, Dictionary<string, float?>>();
             StringBuilder sb = new StringBuilder();
+
+            Dictionary<string, Dictionary<string, float?>> vCPU_ClockDict = new Dictionary<string, Dictionary<string, float?>>();
+
 
             foreach (IHardware hardware in computer.Hardware)
             {
@@ -74,16 +77,16 @@ public partial class Program
                             val.Add("Max", sensor.Max);
                             val.Add("Value", sensor.Value);
 
-                            if (Vsensor.ContainsKey(sensor.Name))
+                            if (vFanDict.ContainsKey(sensor.Name))
                             {
-                                Vsensor[sensor.Name] = val;
+                                vFanDict[sensor.Name] = val;
                             }
                             else
                             {
-                                Vsensor.Add(sensor.Name, val);
+                                vFanDict.Add(sensor.Name, val);
                             }
 
-                            /*foreach(var s in Vsensor)
+                            /*foreach(var s in vFanDict)
                             {
                                 Console.WriteLine("Sensor: " + s.Key + ": \n");
                                 foreach(var v in s.Value)
@@ -96,8 +99,8 @@ public partial class Program
                         }
 
                     }
-                            string valJson = JsonConvert.SerializeObject(Vsensor);
-                            Console.WriteLine(valJson + "\n\n");
+                    Console.Write(jsonParse(vFanDict));
+                            
                 }
 
                 foreach (ISensor sensor in hardware.Sensors)
