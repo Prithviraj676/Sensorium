@@ -13,6 +13,7 @@ using LibreHardwareMonitor.Hardware;
 using Newtonsoft.Json;
 
 using Visitor;
+using serialize;
 //using s_init;
 
 
@@ -21,11 +22,11 @@ using Visitor;
 public partial class Program
 {
     private static bool _running = true;
-    
+
     public static void Main()
     {
         Program one = new Program();
-        ServerInit s_obj = new ServerInit();
+        //ServerInit s_obj = new ServerInit();
         one.Monitor();
     }
 
@@ -49,86 +50,117 @@ public partial class Program
 
         Console.CancelKeyPress += new ConsoleCancelEventHandler(OnExit);
 
+        HashSet< HardwareType> hardwareComp = new HashSet<HardwareType> 
+        { 
+            HardwareType.Motherboard, 
+            HardwareType.Cpu, 
+            //HardwareType.Memory, 
+            //HardwareType.GpuNvidia, 
+            //HardwareType.Storage,
+            //HardwareType.Network
+        };
+
         while (_running)
         {
+            Dictionary<string, Dictionary<string, object>> sensorsDict = new Dictionary<string, Dictionary<string, object>>();
+
             Dictionary<string, Dictionary<string, float?>> vFanDict = new Dictionary<string, Dictionary<string, float?>>();
-            StringBuilder sb = new StringBuilder();
 
-            Dictionary<string, Dictionary<string, float?>> vCPU_ClockDict = new Dictionary<string, Dictionary<string, float?>>();
-
+            JsonUtility jsonizer = new JsonUtility();
 
             foreach (IHardware hardware in computer.Hardware)
             {
-/*                Console.WriteLine("Hardware: {0}", hardware.Name);
-*/                hardware.Update();
-                foreach (IHardware subhardware in hardware.SubHardware)
+                Console.WriteLine("Hardware: {0}", hardware.Name + " : " + hardware.HardwareType);
+                
+                hardware.Update();
+                if (hardwareComp.Contains(hardware.HardwareType))
                 {
-                    Console.WriteLine("OUTER:           \tSubhardware: {0}", subhardware.Name);
-
-                    foreach (ISensor sensor in subhardware.Sensors)
+                    foreach (IHardware subhardware in hardware.SubHardware)
                     {
-                        if((sensor.SensorType == SensorType.Fan) && sensor.Value != 0)
-                        {
-                            Dictionary<string, float?> val= new Dictionary<string, float?>();
-                            /*sb.AppendLine($"\t\tSensor: {sensor.Name}, value: {sensor.Value}, MinValue: {sensor.Min}, MaxValue: {sensor.Max}");
-                            Console.WriteLine($"TYPE\t\tSensor: {sensor.Name},          Min: {sensor.Min},        value: {sensor.Value},            Max: {sensor.Max}, Index{sensor.Index}");
-*/
-                            val.Add("Min", sensor.Min);
-                            val.Add("Max", sensor.Max);
-                            val.Add("Value", sensor.Value);
-
-                            if (vFanDict.ContainsKey(sensor.Name))
+                        //Console.WriteLine("Entered");
+                        Console.WriteLine("\tSubhardware: {0}", subhardware.Name + "\n");
+                            foreach (ISensor sensor in subhardware.Sensors)
                             {
-                                vFanDict[sensor.Name] = val;
-                            }
-                            else
-                            {
-                                vFanDict.Add(sensor.Name, val);
-                            }
-
-                            /*foreach(var s in vFanDict)
-                            {
-                                Console.WriteLine("Sensor: " + s.Key + ": \n");
-                                foreach(var v in s.Value)
+                                if(sensor.Value != 0)
                                 {
-                                    Console.WriteLine("\t\t" + v.Key + " : " + v.Value + "\n");
+                                    jsonizer.JsonParse(sensor.Name, sensor.SensorType.ToString(), sensor.Min, sensor.Max, sensor.Value, sensorsDict);
+                                }
+                                if ((sensor.SensorType == SensorType.Fan) && sensor.Value != 0)
+                                {
+
+                                //    Console.WriteLine("\n\nUpdated Approach: " + jsonizer.Json(sensorsDict));
+
+
+
+                                //        Dictionary<string, float?> val = new Dictionary<string, float?>();
+                                //        sb.AppendLine($"\t\tSensor: {sensor.Name}, value: {sensor.Value}, MinValue: {sensor.Min}, MaxValue: {sensor.Max}");
+                                    Console.WriteLine($"TYPE: {sensor.SensorType},\t\tSensor: {sensor.Name},          Min: {sensor.Min},        value: {sensor.Value},            Max: {sensor.Max}, Index{sensor.Index}");
+
+                                //        val.Add("Min", sensor.Min);
+                                //        val.Add("Max", sensor.Max);
+                                //        val.Add("Value", sensor.Value);
+
+
+                                //        if (vFanDict.ContainsKey(sensor.Name))
+                                //        {
+                                //            vFanDict[sensor.Name] = val;
+                                //        }
+                                //        else
+                                //        {
+                                //            vFanDict.Add(sensor.Name, val);
+                                //        }
+
+
+                                //Console.WriteLine("\n\nInitial Approach: " + jsonizer.Json(vFanDict));
+                                //    foreach(var s in vFanDict)
+                                //    {
+                                //        Console.WriteLine("Sensor: " + s.Key + ": \n");
+                                //        foreach(var v in s.Value)
+                                //        {
+                                //            Console.WriteLine("\t\t" + v.Key + " : " + v.Value + "\n");
+                                //        }
+
+                                //    }
+
                                 }
 
-                            }*/
-
-                        }
+                            }
+                        //Console.WriteLine("\n\nThe Dictionary: ");
+                        //Console.Write("\n\nThe Dictionary: " + JsonUtility.JsonParse(vFanDict));
 
                     }
-                    Console.Write(jsonParse(vFanDict));
-                            
-                }
 
-                foreach (ISensor sensor in hardware.Sensors)
-                {
-
-                    /*Console.WriteLine($"EXTERNAL:           \tSensor Type: {sensor.SensorType},         Sensor: {sensor.Name}, value: {sensor.Value}");*/
+                        foreach (ISensor sensor in hardware.Sensors)
+                        {
+                            if (sensor.Value != 0)
+                            {
+                                //Console.WriteLine(sensor.Name + ": \t" + sensor.SensorType + "\tMin: " + sensor.Min + "\tMax: " + sensor.Max + "\tValue: " + sensor.Value);
+                                jsonizer.JsonParse(sensor.Name, sensor.SensorType.ToString(), sensor.Min, sensor.Max, sensor.Value, sensorsDict);
+                            }
+                        }
                 }
+                //Console.WriteLine("\n\nStart: \n\n" + jsonizer.Json(sensorsDict));
             }
-           /* Console.WriteLine("\n\n\n\n");
-           */
-            string data = sb.ToString();
-            _writer?.WriteLine(data);
+            /* Console.WriteLine("\n\n\n\n");
+            */
+            //string data = sb.ToString();
+            //_writer?.WriteLine(data);
 
             Thread.Sleep(2000);
 
             computer.Accept(new UpdateVisitor());
 
-            Console.WriteLine(SensorType.Fan);
+            //Console.WriteLine(SensorType.Fan);
 
         }
 
         computer.Close();
 
     }
-        private static void OnExit(Object sender, ConsoleCancelEventArgs args)
-        {
-            _running = false;
-            args.Cancel = true;
-            _server.Stop();
-        }
+    private static void OnExit(Object sender, ConsoleCancelEventArgs args)
+    {
+        _running = false;
+        args.Cancel = true;
+        //_server.Stop();
+    }
 }
