@@ -10,22 +10,22 @@ namespace serialize
 {
     public class JsonUtility
     {
-        public void JsonParse(string sensor, string type, float? min, float? max, float? value, Dictionary<string, Dictionary<string, object>> sensors) 
+        public void JsonParse(string sensorName, string sensorType, float? min, float? max, float? current, Dictionary<string, Dictionary<string, object>> sensors) 
         {
 
             Dictionary<string, object> val = new Dictionary<string, object>();
-            val.Add("TYPE", type);
+            val.Add("TYPE", sensorType);
             val.Add("min", min);
             val.Add("max", max);
-            val.Add("Current", value);
+            val.Add("Current", current);
 
-            if (!sensors.ContainsKey(sensor))
+            if (!sensors.ContainsKey(sensorName))
             {
-                sensors.Add(sensor, val);
+                sensors.Add(sensorName, val);
             }
             else
             {
-                sensors[sensor] = val;
+                sensors[sensorName] = val;
             }
 
         }
