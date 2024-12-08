@@ -54,10 +54,10 @@ public partial class Program
         { 
             HardwareType.Motherboard, 
             HardwareType.Cpu, 
-            //HardwareType.Memory, 
-            //HardwareType.GpuNvidia, 
-            //HardwareType.Storage,
-            //HardwareType.Network
+            HardwareType.Memory,
+            HardwareType.GpuNvidia,
+            HardwareType.Storage,
+            HardwareType.Network
         };
 
         while (_running)
@@ -70,7 +70,7 @@ public partial class Program
 
             foreach (IHardware hardware in computer.Hardware)
             {
-                Console.WriteLine("Hardware: {0}", hardware.Name + " : " + hardware.HardwareType);
+                Console.WriteLine("\t\t\tHardware: {0}", hardware.Name + " : " + hardware.HardwareType);
                 
                 hardware.Update();
                 if (hardwareComp.Contains(hardware.HardwareType))
@@ -83,7 +83,7 @@ public partial class Program
                             {
                                 if(sensor.Value != 0)
                                 {
-                                    jsonizer.JsonParse(sensor.Name, sensor.SensorType.ToString(), sensor.Min, sensor.Max, sensor.Value, sensorsDict);
+                                    //jsonizer.JsonParse(sensor.Name, sensor.SensorType.ToString(), sensor.Min, sensor.Max, sensor.Value, sensorsDict);
                                 }
                                 if ((sensor.SensorType == SensorType.Fan) && sensor.Value != 0)
                                 {
@@ -94,7 +94,7 @@ public partial class Program
 
                                 //        Dictionary<string, float?> val = new Dictionary<string, float?>();
                                 //        sb.AppendLine($"\t\tSensor: {sensor.Name}, value: {sensor.Value}, MinValue: {sensor.Min}, MaxValue: {sensor.Max}");
-                                    Console.WriteLine($"TYPE: {sensor.SensorType},\t\tSensor: {sensor.Name},          Min: {sensor.Min},        value: {sensor.Value},            Max: {sensor.Max}, Index{sensor.Index}");
+                                    //Console.WriteLine($"TYPE: {sensor.SensorType},\t\tSensor: {sensor.Name},          Min: {sensor.Min},        value: {sensor.Value},            Max: {sensor.Max}, Index{sensor.Index}");
 
                                 //        val.Add("Min", sensor.Min);
                                 //        val.Add("Max", sensor.Max);
@@ -139,14 +139,14 @@ public partial class Program
                             }
                         }
                 }
-                //Console.WriteLine("\n\nStart: \n\n" + jsonizer.Json(sensorsDict));
+                Console.WriteLine("\n\nStart: \n\n" + jsonizer.Json(sensorsDict));
             }
             /* Console.WriteLine("\n\n\n\n");
             */
             //string data = sb.ToString();
             //_writer?.WriteLine(data);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(200000);
 
             computer.Accept(new UpdateVisitor());
 
