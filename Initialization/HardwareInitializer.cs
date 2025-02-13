@@ -12,20 +12,24 @@ namespace Initializer
 
 
 
-		public void HInitializer(Computer computer, Dictionary<string, object> comp)
+		public void HInitializer(Computer computer, Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, float?>>>>> comp)
 		{
 			JsonUtility jsonizer = new JsonUtility();
 			SHwareInitializer subHware = new SHwareInitializer();
-
+			SensorInitializer senInit = new SensorInitializer();
 
 			foreach (IHardware hardware in computer.Hardware)
 			{
-				Dictionary<string, object> Hware = new Dictionary<string, object>();
+                Dictionary<string, object> Hware = new Dictionary<string, Dictionary<string, Dictionary<string, object>();
+				
 				subHware.SInitializer(hardware, Hware);
+
+				senInit.SensorInit(hardware, Hware);
+
 				comp.Add(hardware.Name.ToString()+"_"+hardware.HardwareType.ToString(), Hware);
 
 			}
-			Console.WriteLine(jsonizer.Json(comp));
+			//Console.WriteLine(jsonizer.Json(comp));
 		}
 	}
 }

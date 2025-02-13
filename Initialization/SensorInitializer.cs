@@ -23,7 +23,7 @@ public class SensorInitializer
 			sensorDict[sensor.SensorType.ToString()][sensor.Name] = new Dictionary<string, float?>
 				{
 						{ "Min", sensor.Min },
-						{ "Current", sensor.Value},
+						{ "Current", sensor.Value },
 						{ "Max", sensor.Max }
 				};
 
