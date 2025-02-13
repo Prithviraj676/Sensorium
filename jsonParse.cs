@@ -31,7 +31,7 @@ namespace serialize
         }
 
 
-        public string Json(Dictionary<string, Dictionary<string, object>> val)
+        public string Json(Dictionary<string, object> val)
         {
             string valJson = JsonConvert.SerializeObject(val, Formatting.Indented);
 
@@ -39,7 +39,15 @@ namespace serialize
 
         }
 
-       
+        public string Json(Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, float?>>>> val)
+        {
+            string valJson = JsonConvert.SerializeObject(val, Formatting.Indented);
+
+            return valJson;
+
+        }
+
+
 
     }
 }   

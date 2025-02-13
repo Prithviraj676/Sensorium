@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "kt5HRAB+weeEEdD9pye3cLkNc01/MZtS7dQoPilYK8OdLIHF7d+jwfHufA6aDVVgunnEZQehLQmyuxqO/Q1ngA==",
+  "dgSpecHash": "2+jQk1N8Ybc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\DataRetrieval\\DataRetrieval.csproj",
+  "projectFilePath": "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\Sensorium\\DataRetrieval.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AERO\\.nuget\\packages\\hidsharp\\2.1.0\\hidsharp.2.1.0.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\librehardwaremonitorlib\\0.9.3\\librehardwaremonitorlib.0.9.3.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\mono.posix.netstandard\\1.0.0\\mono.posix.netstandard.1.0.0.nupkg.sha512",
+    "C:\\Users\\AERO\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\openhardwaremonitor\\0.9.6\\openhardwaremonitor.0.9.6.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
     "C:\\Users\\AERO\\.nuget\\packages\\runtime.linux-arm64.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
