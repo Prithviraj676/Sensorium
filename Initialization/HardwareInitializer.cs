@@ -20,7 +20,7 @@ namespace Initializer
 
 			foreach (IHardware hardware in computer.Hardware)
 			{
-                Dictionary<string, object> Hware = new Dictionary<string, Dictionary<string, Dictionary<string, object>();
+                Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, float?>>>> Hware = new Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, float?>>>>();
 				
 				subHware.SInitializer(hardware, Hware);
 

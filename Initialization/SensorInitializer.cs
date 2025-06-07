@@ -9,7 +9,7 @@ public class SensorInitializer
 
 	}
 
-	public void SensorInit(IHardware hardware, Dictionary<string, object> Hware)
+	public void SensorInit(IHardware hardware, Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, float?>>>> Hware)
 	{
 		Dictionary<string, Dictionary<string, Dictionary<string, float?>>> sensorDict = new Dictionary<string, Dictionary<string, Dictionary<string, float?>>>();
 

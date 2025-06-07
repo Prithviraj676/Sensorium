@@ -12,14 +12,14 @@ namespace Initializer
 		
 		}
 
-		public void SInitializer(IHardware hardware, Dictionary<string, object> Hware)
+		public void SInitializer(IHardware hardware, Dictionary<string, Dictionary<string, Dictionary<string, Dictionary<string, float?>>>> Hware)
 		{
 			sSensorInitializer subSensor = new sSensorInitializer();
 
 			foreach (IHardware subhardware in hardware.SubHardware)
 			{
-			
-				Dictionary<string, object> sHware = new Dictionary<string, object>();
+
+                Dictionary<string, Dictionary<string, Dictionary<string, float?>>> sHware = new Dictionary<string, Dictionary<string, Dictionary<string, float?>>>();
 				subSensor.subSensorInitializer(subhardware, sHware);
 				Hware.Add(subhardware.Name.ToString() + "_" + subhardware.HardwareType.ToString(), sHware);
 			}

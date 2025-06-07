@@ -8,7 +8,7 @@ public class sSensorInitializer
 
 	}
 
-	public void subSensorInitializer(IHardware subhardware, Dictionary<string, object> sHware)
+	public void subSensorInitializer(IHardware subhardware, Dictionary<string, Dictionary<string, Dictionary<string, float?>>> sHware)
 	{
 
 		Dictionary<string, Dictionary<string, Dictionary<string, float?>>> subSensorsDict = new Dictionary<string, Dictionary<string, Dictionary<string, float?>>>();

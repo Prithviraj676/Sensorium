@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataRetrieval")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf6caf36e5361142a3ef320ab5b7a2a04ce41430")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8b27d3300d7af3e917a9f9258dc6ac3cfdb8f1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataRetrieval")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataRetrieval")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
