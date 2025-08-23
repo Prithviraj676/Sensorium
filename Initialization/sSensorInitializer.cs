@@ -65,7 +65,7 @@ public class sSensorInitializer
     };
         }
 
-        sHware.Add("SubSensors",  subSensorsDict);
+        //sHware.Add("SubSensors",  subSensorsDict);
 
 	}
 }

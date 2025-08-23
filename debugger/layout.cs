@@ -16,11 +16,11 @@ namespace debug
 
         }
 
-        public static void Main()
-        {
-            layout obj = new layout();
-            obj.Monitor();
-        }
+        //public static void Main()
+        //{
+        //    layout obj = new layout();
+        //    obj.Monitor();
+        //}
 
         public class UpdateVisitor : IVisitor
         {
@@ -55,6 +55,7 @@ namespace debug
 
             foreach (IHardware hardware in computer.Hardware)
             {
+                Console.WriteLine("------------------Updated----------------");
                 Console.WriteLine("Hardware: {0}", hardware.Name);
 
                 foreach (IHardware subhardware in hardware.SubHardware)
@@ -63,13 +64,14 @@ namespace debug
 
                     foreach (ISensor sensor in subhardware.Sensors)
                     {
-                        Console.WriteLine("\t\tSensor: {0}, value: {1}", sensor.Name, sensor.Value);
+                        Console.WriteLine("~~~~~~~~~~~~~~~~~UP~~~~~~~~~~~~~~");
+                        Console.WriteLine("\t\tSensor: {0}, value: {1}, Min: {2}, Max: {3}", sensor.Name, sensor.Value, sensor.Min, sensor.Max);
                     }
                 }
 
                 foreach (ISensor sensor in hardware.Sensors)
                 {
-                    Console.WriteLine("\tSensor: {0}, value: {1}", sensor.Name, sensor.Value);
+                    Console.WriteLine("\tSensor: {0}, value: {1}, Min: {2}, Max: {3}", sensor.Name, sensor.Value, sensor.Min, sensor.Max);
                 }
             }
 

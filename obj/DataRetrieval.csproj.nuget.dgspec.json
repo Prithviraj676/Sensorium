@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\Sensorium\\DataRetrieval.csproj": {}
+    "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\DataRetrieval.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\Sensorium\\DataRetrieval.csproj": {
+    "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\DataRetrieval.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\Sensorium\\DataRetrieval.csproj",
+        "projectUniqueName": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\DataRetrieval.csproj",
         "projectName": "DataRetrieval",
-        "projectPath": "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\Sensorium\\DataRetrieval.csproj",
-        "packagesPath": "C:\\Users\\AERO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AERO\\Documents\\code\\Proj\\fan\\fan_C#\\Sensorium\\obj\\",
+        "projectPath": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\DataRetrieval.csproj",
+        "packagesPath": "C:\\Users\\divrg\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\AERO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\divrg\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.106/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

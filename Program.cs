@@ -64,7 +64,7 @@ namespace Main
             computer.Accept(new UpdateVisitor());
             Dictionary<string, object> data = new Dictionary<string, object>(); 
             Console.WriteLine(jsonizer.Json(data));
-            hardwareInitializer.HInitializer(computer, data);
+            //hardwareInitializer.HInitializer(computer, data);
             //while (_running){
             Console.WriteLine("\n\n\t\tUpdated\n\n");
                 //hardwareUpdater.HwareUpdater(computer, data);
@@ -83,7 +83,7 @@ namespace Main
                 HardwareType.Network
             };
             Dictionary<string, object> uniHardware = new Dictionary<string, object>();
-
+            Dictionary<string, Dictionary<string, float?>> sensors = new Dictionary<string, Dictionary<string, float?>>();
             foreach (IHardware hardware in computer.Hardware)
             {
                 //Console.WriteLine("Hardware: {0} :: {1}", hardware.Name, hardware.HardwareType);
@@ -94,7 +94,7 @@ namespace Main
                     { "hType", hardware.HardwareType.ToString() },
                     { "Sware", null}
                 };
-
+                
                 foreach (IHardware subhardware in hardware.SubHardware)
                 {
                     //Console.WriteLine("\tSubhardware: {0}  ::  {1}", subhardware.Name, subhardware.HardwareType);
