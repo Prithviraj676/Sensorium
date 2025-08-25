@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|c:\\users\\divrg\\onedrive\\documents\\proj\\fan\\sensorium\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|c:\\users\\divrg\\onedrive\\documents\\proj\\fan\\sensorium\\initialization\\hardwareinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|solutionrelative:initialization\\hardwareinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|c:\\users\\divrg\\onedrive\\documents\\proj\\fan\\sensorium\\debugger\\layout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|solutionrelative:debugger\\layout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|c:\\users\\divrg\\onedrive\\documents\\proj\\fan\\sensorium\\initialization\\ssensorinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|solutionrelative:initialization\\ssensorinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|c:\\users\\divrg\\onedrive\\documents\\proj\\fan\\sensorium\\initialization\\shwareinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|solutionrelative:initialization\\shwareinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|c:\\users\\divrg\\onedrive\\documents\\proj\\fan\\sensorium\\initialization\\sensorinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CC7B48B-B3A8-4CED-911D-EF0227BEEC04}|DataRetrieval.csproj|solutionrelative:initialization\\sensorinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 211,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SHwareInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\SHwareInitializer.cs",
+              "RelativeDocumentMoniker": "Initialization\\SHwareInitializer.cs",
+              "ToolTip": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\SHwareInitializer.cs",
+              "RelativeToolTip": "Initialization\\SHwareInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T14:21:11.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HardwareInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\HardwareInitializer.cs",
+              "RelativeDocumentMoniker": "Initialization\\HardwareInitializer.cs",
+              "ToolTip": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\HardwareInitializer.cs",
+              "RelativeToolTip": "Initialization\\HardwareInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T12:14:07.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "sSensorInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\sSensorInitializer.cs",
+              "RelativeDocumentMoniker": "Initialization\\sSensorInitializer.cs",
+              "ToolTip": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\sSensorInitializer.cs",
+              "RelativeToolTip": "Initialization\\sSensorInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T12:57:22.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "layout.cs",
+              "DocumentMoniker": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\debugger\\layout.cs",
+              "RelativeDocumentMoniker": "debugger\\layout.cs",
+              "ToolTip": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\debugger\\layout.cs",
+              "RelativeToolTip": "debugger\\layout.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAuwEkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T09:23:10.136Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 189,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SensorInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\SensorInitializer.cs",
+              "RelativeDocumentMoniker": "Initialization\\SensorInitializer.cs",
+              "ToolTip": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Initialization\\SensorInitializer.cs",
+              "RelativeToolTip": "Initialization\\SensorInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-17T12:14:19.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\divrg\\OneDrive\\Documents\\proj\\fan\\Sensorium\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAACUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T08:58:13.39Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
