@@ -1,4 +1,5 @@
 import sys
+
 from time import sleep
 from PySide6.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout
 from PySide6.QtCore import QTimer
