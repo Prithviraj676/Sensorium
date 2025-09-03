@@ -1,16 +1,17 @@
 import sys
+import psutil
 from typing import ReadOnly
 
-from PySide6.QtCore import QTimer, Qt, QAbstractTableModel, QFile
+from PySide6.QtCore import QTimer, Qt, QAbstractTableModel, QFile, QFileInfo
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QWidget, QApplication, QMainWindow, QMessageBox, QTableView, QHeaderView
+from PySide6.QtWidgets import QFileIconProvider, QWidget, QApplication, QMainWindow, QMessageBox, QTableView, QHeaderView
 
 
 class Table(QAbstractTableModel):
     def __init__(self, data):
         super().__init__()
         self._data = data
-        self._header = ["PID", "Process", "Memory", "CPU"]
+        self._header = ["PID", "Process", "Memory", "CPU", "Status", "Threads Occupied"]
 
     def rowCount(self, parent=None):
         return len(self._data)
@@ -19,8 +20,18 @@ class Table(QAbstractTableModel):
         return len(self._data[0])
 
     def data(self, index, role=Qt.DisplayRole):
-        if role == Qt.DisplayRole:
-            return str(self._data[index.row()][index.column()])
+        if not index.isValid():
+            return None
+
+        value = self._data[index.row()][index.column()]
+        if index.column() == 1:
+            if role == Qt.DisplayRole:
+                return value[1]
+            elif role == Qt.DecorationRole:
+                return value[0]
+        else:
+            return str(value)
+
         return None
 
     def headerData(self, section, orientation, role=Qt.DisplayRole):
@@ -37,6 +48,32 @@ data = [
     [1415, "discord.exe", 3.2, 4.7],
 ]
 
+def getProcesses(limit=30):
+    process_info = []
+    for proc in psutil.process_iter(["pid", "name", "memory_percent", "cpu_percent",
+        "status", "num_threads", "exe"]):
+        try:
+            exe_path = proc.info["exe"]
+            if exe_path:
+                fileInfo = QFileInfo(exe_path)
+
+                icon = provider.icon(fileInfo)
+            else:
+                icon = None
+
+            process_info.append([
+                proc.info["pid"],
+                (icon, proc.info["name"]),
+                round(proc.info["memory_percent"], 2),
+                round(proc.info["cpu_percent"], 2),
+                proc.info["status"],
+                proc.info["num_threads"]])
+
+
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            pass
+    process_info = sorted(process_info, key=lambda x: x[2], reverse=True)[:limit]
+    return process_info
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -46,15 +83,17 @@ if __name__ == '__main__':
     window = loader.load(file)
     file.close()
 
-    table = window.findChild(QTableView, "tableView")
+    provider = QFileIconProvider()
 
+    table = window.findChild(QTableView, "tableView")
+    data = getProcesses(100)
     model = Table(data)
     table.setModel(model)
     header = table.horizontalHeader()
     # header.setSectionResizeMode(QHeaderView.Stretch)
 
     for child in window.findChildren(QWidget):
-        print(child.objectName(), "----", type(child), "\n\n")
-
+        # print(child.objectName(), "----", type(child), "\n\n")
+        pass
     window.show()
     app.exec_()
