@@ -24,15 +24,14 @@ class Table(QAbstractTableModel):
             return None
 
         value = self._data[index.row()][index.column()]
-        if index.column() == 1:
-            if role == Qt.DisplayRole:
+        if role == Qt.DisplayRole:
+            if isinstance(value, tuple):
                 return value[1]
-            elif role == Qt.DecorationRole:
-                return value[0]
-        else:
             return str(value)
 
-        return None
+        elif role == Qt.DecorationRole and isinstance(value, tuple):
+            return value[0]
+
 
     def headerData(self, section, orientation, role=Qt.DisplayRole):
         if orientation == Qt.Horizontal and role == Qt.DisplayRole:
@@ -72,7 +71,7 @@ def getProcesses(limit=30):
 
         except (psutil.NoSuchProcess, psutil.AccessDenied):
             pass
-    process_info = sorted(process_info, key=lambda x: x[2], reverse=True)[:limit]
+    process_info = sorted(process_info, key=lambda x: x[2], reverse=True)
     return process_info
 
 if __name__ == '__main__':
@@ -89,11 +88,13 @@ if __name__ == '__main__':
     data = getProcesses(100)
     model = Table(data)
     table.setModel(model)
+    table.setAlternatingRowColors(True)
     header = table.horizontalHeader()
-    # header.setSectionResizeMode(QHeaderView.Stretch)
+    header.setSectionResizeMode(QHeaderView.Stretch)
 
-    for child in window.findChildren(QWidget):
-        # print(child.objectName(), "----", type(child), "\n\n")
-        pass
+    # for child in window.findChildren(QWidget):
+    #     print(child.objectName(), "----", type(child), "\n\n")
+    #     pass
+    #
     window.show()
-    app.exec_()
+    app.exec()
